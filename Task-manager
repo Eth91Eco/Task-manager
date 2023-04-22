@@ -1,0 +1,51 @@
+tasks = []
+
+def add_task():
+    task_name = input("Enter task name: ")
+    task_description = input("Enter task description: ")
+    tasks.append((task_name, task_description))
+    print("Task added successfully!")
+
+def view_tasks():
+    if len(tasks) == 0:
+        print("No tasks found.")
+    else:
+        for i, task in enumerate(tasks):
+            print(f"{i+1}. {task[0]} - {task[1]}")
+
+def delete_task():
+    if len(tasks) == 0:
+        print("No tasks found.")
+    else:
+        task_index = int(input("Enter task number to delete: "))
+        if task_index <= 0 or task_index > len(tasks):
+            print("Invalid task number.")
+        else:
+            tasks.pop(task_index-1)
+            print("Task deleted successfully!")
+
+while True:
+    print("1. Add task")
+    print("2. View tasks")
+    print("3. Delete task")
+    print("4. Quit")
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        add_task()
+    elif choice == 2:
+        view_tasks()
+    elif choice == 3:
+        delete_task()
+    elif choice == 4:
+        print("Exiting...")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+echo "# Task-manager" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Eth91Eco/Task-manager.git
+git push -u origin main
